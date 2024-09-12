@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Allan's Web Developer Portfolio">
+    <meta name="author" content="Allan N. Bantilan">
+    <title>Allan Bantilan - Portfolio</title>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <div
+        class="absolute top-8 left-1/2 transform -translate-x-1/2 px-2 lg:px-6 py-2 bg-gray-800 rounded-lg shadow-lg z-20">
+        <nav class="flex gap-4 sm:gap-6">
+            <a class="text-sm font-medium font-montserrat text-white hover:text-blue-400 transition-all"
+                href="#hero">Home</a>
+            <a class="text-sm font-medium font-montserrat text-white hover:text-blue-400 transition-all"
+                href="#projects">Projects</a>
+            <a class="text-sm font-medium font-montserrat text-white hover:text-blue-400 transition-all"
+                href="#get-in-touch">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative w-full py-24 md:py-32 lg:py-72 flex items-center justify-center">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="video/bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Content Wrapper -->
+        <div
+            class="relative z-10 container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center st">
+            <div style="background-color: rgba(37, 46, 60, 0.386);" class="rounded-lg p-8 shadow-lg">
+                <div class="space-y-2">
+                    <h1
+                        class="text-4xl font-bold font-montserrat tracking-tighter sm:text-5xl md:text-6xl text-white animate-fade-in-down">
+                        Hi, I'm Allan!
+                    </h1>
+                    <p
+                        class="mx-auto max-w-[700px] text-xl font-montserrat text-gray-200 md:text-2xl lg:text-xl xl:text-2xl animate-fade-in-up">
+                        I'm a passionate web developer with expertise in building modern, responsive, and scalable web
+                        applications.
+                    </p>
+                    <div class="pt-14">
+                        <a class="button inline-flex h-12 items-center justify-center rounded-md bg-gray-800 text-white px-8 text-lg font-medium shadow transition-all hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 animate-bounce mt-8"
+                            href="#">
+                            Download Resume
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <main class="flex-1">
+        <!-- Tech Stacks Section -->
+        <section id="stacks" class="w-full py-12 md:py-24 lg:py-32 bg-white">
+            <div class="container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center">
+                <div class="space-y-2">
+                    <div class="inline-block rounded-lg bg-blue-500 px-3 py-1 text-sm text-white">
+                        Technologies
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-900">
+                        Stacks I Work With
+                    </h2>
+                    <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
+                        I'm proficient in a wide range of technologies and tools to deliver high-quality web
+                        applications.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 mt-8">
+                    <!-- Tech Icons -->
+                    <div class="flex flex-col items-center justify-center space-y-2 transition-all hover:scale-105">
+                        <img src="img/html.png" alt="HTML logo" class="h-16 w-16 object-contain">
+                        <span class="text-sm font-medium text-gray-900">HTML</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center space-y-2 transition-all hover:scale-105">
+                        <img src="img/php.png" alt="PHP logo" class="h-16 w-16 object-contain">
+                        <span class="text-sm font-medium text-gray-900">PHP</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center space-y-2 transition-all hover:scale-105">
+                        <img src="img/laravel.png" alt="Laravel logo" class="h-16 w-16 object-contain">
+                        <span class="text-sm font-medium text-gray-900">Laravel</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center space-y-2 transition-all hover:scale-105">
+                        <img src="img/tailwind.png" alt="Tailwind CSS logo" class="h-16 w-16 object-contain">
+                        <span class="text-sm font-medium text-gray-900">Tailwind CSS</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center space-y-2 transition-all hover:scale-105">
+                        <img src="img/js.png" alt="JavaScript logo" class="h-16 w-16 object-contain">
+                        <span class="text-sm font-medium text-gray-900">JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center space-y-2 transition-all hover:scale-105">
+                        <img src="img/mysql.png" alt="MySQL logo" class="h-16 w-16 object-contain">
+                        <span class="text-sm font-medium text-gray-900">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="w-full py-12 md:py-24 lg:py-32" style="background-color: rgb(0, 0, 0);"">
+            <div class=" container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center">
+            <div class="space-y-2">
+                <div class="inline-block rounded-lg bg-blue-500 px-3 py-1 text-sm text-white">
+                    Portfolio
+                </div>
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+                    My Latest Projects
+                </h2>
+                <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
+                    Check out some of the web applications I've built for my clients and personal projects.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+                <!-- Project Cards -->
+                <div
+                    class="rounded-lg border bg-gray-800 text-gray-100 shadow-lg overflow-hidden transition-all hover:shadow-xl hover:scale-105">
+                    <img src="img/income.png" width="400" height="225" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="inline-block rounded-lg bg-blue-500 px-3 py-1 text-md font-bold text-white">
+                            Income Checker
+                        </div>
+                        <p class="text-sm mt-2 text-white">An Income checker for small businesses.</p>
+                        <div class="mt-4 flex justify-between w-full">
+                            <!-- Live Website Icon -->
+                            <a href="http://incomechecker.kesug.com/" target="_blank"
+                                class="flex items-center text-white bg-blue-600 hover:bg-blue-700 rounded-lg py-2 px-4 transition-all">
+                                <i class="fas fa-globe-americas text-xl mr-2"></i>
+                                <span class="text-sm">Visit Website</span>
+                            </a>
+                            <!-- GitHub Icon -->
+                            <a href="https://github.com/allanbantilan/income-checker" target="_blank"
+                                class="flex items-center text-white bg-black hover:bg-gray-700 rounded-lg py-2 px-4 transition-all">
+                                <i class="fab fa-github text-xl"></i>
+                                <span class="ml-2">View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div
+                    class="rounded-lg border bg-gray-800 text-gray-100 shadow-lg overflow-hidden transition-all hover:shadow-xl hover:scale-105">
+                    <img src="img/taskit.png" width="400" height="225" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="inline-block rounded-lg bg-blue-500 px-3 py-1 text-md font-bold text-white">
+                            Task It
+                        </div>
+                        <p class="text-sm text-white mt-2">A task mananement system for recording small tasks.</p>
+                        <div class="mt-4 flex justify-between w-full">
+                            <!-- Live Website Icon -->
+                            <a href="http://task-it.kesug.com/" target="_blank"
+                                class="flex items-center text-white bg-blue-600 hover:bg-blue-700 rounded-lg py-2 px-4 transition-all">
+                                <i class="fas fa-globe-americas text-xl mr-2"></i>
+                                <span class="text-sm">Visit Website</span>
+                            </a>
+                            <!-- GitHub Icon -->
+                            <a href="https://github.com/allanbantilan/Task-It" target="_blank"
+                                class="flex items-center text-white bg-black hover:bg-gray-700 rounded-lg py-2 px-4 transition-all">
+                                <i class="fab fa-github text-xl"></i>
+                                <span class="ml-2">View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="rounded-lg border bg-gray-800 text-gray-100 shadow-lg overflow-hidden transition-all hover:shadow-xl hover:scale-105">
+                    <img src="img/auto.png" width="400" height="225" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="inline-block rounded-lg bg-blue-500 px-3 py-1 text-md font-bold text-white">
+                            Auto Blogs
+                        </div>
+                        <p class="text-sm text-white mt-2">Built with jetstream and filaments, a blog post site about
+                            cars.</p>
+
+                        <div class="mt-4 flex justify-between w-full">
+                            <!-- Live Website Icon -->
+                            <!-- <a href="https://www.yourwebsite.com" target="_blank"
+                                class="flex items-center text-white bg-blue-600 hover:bg-blue-700 rounded-lg py-2 px-4 transition-all">
+                                <i class="fas fa-globe-americas text-xl mr-2"></i>
+                                <span class="text-sm">Visit Website</span>
+                            </a> -->
+                            <!-- GitHub Icon -->
+                            <a href="https://github.com/allanbantilan/Auto-Blogs" target="_blank"
+                                class="flex items-center text-white bg-black hover:bg-gray-700 rounded-lg py-2 px-4 transition-all ml-auto">
+                                <i class="fab fa-github text-xl"></i>
+                                <span class="ml-2">View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+            </div>
+        </section>
+        <!-- get in touch  -->
+        <section id="get-in-touch" class="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+            <div class="container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center">
+                <div class="space-y-2">
+                    <div class="inline-block rounded-lg bg-blue-500 px-3 py-1 text-sm text-white">
+                        Get in Touch
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-900">
+                        Contact Me
+                    </h2>
+                    <p class="mx-auto max-w-[700px] text-gray-600 md:text-xl lg:text-base xl:text-xl">
+                        I would love to hear from you. Feel free to reach out through any of the following channels:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-8 mt-8">
+                    <!-- Email Button -->
+                    <!-- Email Button -->
+                    <a href="mailto:allanbantilan11@gmail.com"
+                        class="inline-flex items-center gap-4 rounded-md bg-blue-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        rel="ugc">
+                        <i class="fas fa-envelope h-5 w-5 mt-2 text-white"></i>
+                        Email Me
+                    </a>
+
+                    <!-- LinkedIn Button -->
+                    <a href="https://www.linkedin.com/in/allanbantilan03" target="_blank"
+                        class="inline-flex items-center gap-4 rounded-md bg-blue-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        rel="ugc">
+                        <i class="fab fa-linkedin h-5 w-5  mt-2 text-white"></i>
+                        LinkedIn
+                    </a>
+
+                    <!-- GitHub Button -->
+                    <a href="https://github.com/allanbantilan" target="_blank"
+                        class="inline-flex items-center gap-4 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600"
+                        rel="ugc">
+                        <i class="fab fa-github h-5 w-5  mt-2 text-white"></i>
+                        GitHub
+                    </a>
+
+
+                </div>
+            </div>
+        </section>
+        ,
+
+
+        <section class="w-full py-12" style=" background-color: rgb(0, 0, 0);"">
+          <p class=" text-white font-montserrat p-4">© Allan Bantilan, 2024</p>
+        </section>
+
+
+
+    </main>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetElement = document.querySelector(this.getAttribute('href'));
+
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
