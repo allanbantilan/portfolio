@@ -125,6 +125,8 @@ const projectStackIconClasses: Record<string, string> = {
   Inertia: "devicon-inertiajs-plain colored",
   Tailwind: "devicon-tailwindcss-original colored",
   MySQL: "devicon-mysql-plain colored",
+  "Node.js": "devicon-nodejs-plain colored",
+  JavaScript: "devicon-javascript-plain colored",
 };
 
 const projects: Project[] = [
@@ -145,6 +147,15 @@ const projects: Project[] = [
     screenshot: "/booking-system.png",
     live: "https://bookbound.duckdns.org",
     stack: ["Laravel", "Vue 3", "Tailwind", "MySQL"],
+  },
+  {
+    title: "Aurora AI CLI",
+    text:
+      "A CLI coding agent for developers, with PHP/Laravel-aware workflows. Supports interactive and one-shot modes, file and shell tools, multiple AI providers with fallback, and permission modes for safe edits.",
+    repo: "https://github.com/allanbantilan/aurora-ai-cli",
+    screenshot: "/aurora-cli.png",
+    live: "",
+    stack: ["Node.js", "JavaScript"],
   },
 ];
 
@@ -339,10 +350,6 @@ onMounted(() => {
                 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 Live Site
               </a>
-              <span v-else class="pending-link">
-                <i class="fa-regular fa-clock" aria-hidden="true"></i>
-                Live link pending
-              </span>
             </div>
           </div>
         </article>
