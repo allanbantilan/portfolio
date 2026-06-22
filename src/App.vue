@@ -13,6 +13,7 @@ type StackItem = {
     | "vue"
     | "react"
     | "reactnative"
+    | "expo"
     | "node"
     | "laravel"
     | "inertia"
@@ -66,6 +67,7 @@ const stackGroups: { title: string; items: StackItem[] }[] = [
       { name: "Vue 3", icon: "vue" },
       { name: "React", icon: "react" },
       { name: "React Native", icon: "reactnative" },
+      { name: "Expo", icon: "expo" },
       { name: "Node.js", icon: "node" },
       { name: "Tailwind CSS", icon: "tailwind" },
       { name: "Filament", icon: "filament" },
@@ -97,6 +99,7 @@ const stackIconClasses: Record<StackItem["icon"], string> = {
   vue: "devicon-vuejs-plain colored",
   react: "devicon-react-original colored",
   reactnative: "devicon-react-original colored",
+  expo: "devicon-expo-original colored",
   node: "devicon-nodejs-plain colored",
   laravel: "devicon-laravel-plain colored",
   inertia: "devicon-inertiajs-plain colored",
