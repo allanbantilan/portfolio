@@ -36,6 +36,7 @@ type Project = {
   repo: string;
   screenshot: string;
   live: string;
+  credentials?: string;
   stack: string[];
 };
 
@@ -140,6 +141,8 @@ const projects: Project[] = [
     repo: "https://github.com/allanbantilan/pos-management-system-web",
     screenshot: "/pos-management.png",
     live: "https://posmanagement.duckdns.org",
+    credentials:
+      "https://github.com/allanbantilan/pos-management-system-web#demo-login-credentials",
     stack: ["Laravel", "Vue 3", "Inertia", "MySQL"],
   },
   {
@@ -149,6 +152,8 @@ const projects: Project[] = [
     repo: "https://github.com/allanbantilan/booking-system-web",
     screenshot: "/booking-system.png",
     live: "https://bookbound.duckdns.org",
+    credentials:
+      "https://github.com/allanbantilan/booking-system-web#demo-login-credentials",
     stack: ["Laravel", "Vue 3", "Tailwind", "MySQL"],
   },
   {
@@ -352,6 +357,15 @@ onMounted(() => {
               >
                 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 Live Site
+              </a>
+              <a
+                v-if="project.credentials"
+                :href="project.credentials"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-solid fa-key" aria-hidden="true"></i>
+                Login Credentials
               </a>
             </div>
           </div>
