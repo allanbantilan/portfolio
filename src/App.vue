@@ -243,7 +243,7 @@ onMounted(() => {
         <div class="hero-actions">
           <a
             class="button primary"
-            href="https://drive.google.com/file/d/1vBtUSiFIrShB4aeOLxvgRiW-PtYWw7Xw/view?usp=sharing"
+            href="https://drive.google.com/file/d/1lnUFRhRWl7P6RTTUiBGXavNLHbvxWsAl/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
           >
