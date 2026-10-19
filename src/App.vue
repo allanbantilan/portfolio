@@ -129,11 +129,24 @@ const projectStackIconClasses: Record<string, string> = {
   Inertia: "devicon-inertiajs-plain colored",
   Tailwind: "devicon-tailwindcss-original colored",
   MySQL: "devicon-mysql-plain colored",
+  FastAPI: "devicon-fastapi-plain colored",
+  PostgreSQL: "devicon-postgresql-plain colored",
+  Redis: "devicon-redis-plain colored",
+  Docker: "devicon-docker-plain colored",
   "Node.js": "devicon-nodejs-plain colored",
   JavaScript: "devicon-javascript-plain colored",
 };
 
 const projects: Project[] = [
+  {
+    title: "Pulse Webhook Monitoring",
+    text:
+      "A self-hosted monitoring dashboard for HTTP endpoints. Schedule checks, track status codes and response times, investigate incidents, and view uptime reports and check history.",
+    repo: "https://github.com/allanbantilan/webhook-monitoring-web",
+    screenshot: "/pulse-webhook.png",
+    live: "https://pulse-webhook.duckdns.org",
+    stack: ["Vue 3", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+  },
   {
     title: "POS Management System",
     text:
