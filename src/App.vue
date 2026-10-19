@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, reactive } from "vue";
 
 type StackItem = {
   name: string;
@@ -37,8 +37,7 @@ type Project = {
   text: string;
   contribution: string;
   repo: string;
-  screenshot: string;
-  screenshotAlt: string;
+  screenshots: { src: string; alt: string; label: string }[];
   live: string;
   credentials?: string;
   stack: string[];
@@ -133,6 +132,7 @@ const stackIconColors: Partial<Record<StackItem["icon"], string>> = {
 
 const projectStackIconClasses: Record<string, string> = {
   Laravel: "devicon-laravel-plain colored",
+  Filament: "devicon-filamentphp-plain colored",
   Python: "devicon-python-plain",
   "Vue 3": "devicon-vuejs-plain colored",
   Inertia: "devicon-inertiajs-plain colored",
@@ -154,8 +154,33 @@ const projects: Project[] = [
     contribution:
       "Built scheduled checks, incident handling, alert delivery, and a dashboard backed by FastAPI, PostgreSQL, and Redis.",
     repo: "https://github.com/allanbantilan/webhook-monitoring-web",
-    screenshot: "/pulse-webhook.png",
-    screenshotAlt: "Pulse dashboard showing monitor totals and an open incident",
+    screenshots: [
+      {
+        src: "/pulse-webhook.png",
+        alt: "Pulse dashboard showing monitor totals and an open incident",
+        label: "Dashboard",
+      },
+      {
+        src: "/pulse-webhook-monitors.png",
+        alt: "Pulse monitors page showing one healthy and one failing endpoint",
+        label: "Monitors",
+      },
+      {
+        src: "/pulse-webhook-incidents.png",
+        alt: "Pulse incidents page showing an open and a resolved outage",
+        label: "Incidents",
+      },
+      {
+        src: "/pulse-webhook-alerts.png",
+        alt: "Pulse alerts page for configuring notification channels",
+        label: "Alerts",
+      },
+      {
+        src: "/pulse-webhook-login.png",
+        alt: "Pulse sign-in page",
+        label: "Sign in",
+      },
+    ],
     live: "https://pulse-webhook.duckdns.org",
     stack: ["Vue 3", "Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
   },
@@ -164,28 +189,42 @@ const projects: Project[] = [
     text:
       "A cashier and shop management app for sales, stock, receipts, and reporting.",
     contribution:
-      "Built product search, cart and checkout flows for cash and Maya payments, plus catalog and transaction tools.",
+      "Built product search, cart and checkout flows for cash and Maya payments, plus a Filament admin panel for catalog and transactions.",
     repo: "https://github.com/allanbantilan/pos-management-system-web",
-    screenshot: "/pos-management.png",
-    screenshotAlt: "POS Management System interface",
+    screenshots: [
+      { src: "/pos-management.png", alt: "POS product catalog and current sale", label: "Product catalog" },
+      { src: "/pos-checkout.png", alt: "POS checkout payment method selection", label: "Checkout" },
+      { src: "/pos-cash-payment.png", alt: "POS cash payment keypad", label: "Cash payment" },
+      { src: "/pos-admin-dashboard.png", alt: "Filament POS admin dashboard", label: "Admin dashboard" },
+      { src: "/pos-admin-statistics.png", alt: "Filament POS statistics overview", label: "Admin statistics" },
+      { src: "/pos-admin-sales.png", alt: "Filament POS sales and transactions list", label: "Admin sales" },
+      { src: "/pos-admin-users.png", alt: "Filament POS client users list", label: "Admin users" },
+    ],
     live: "https://posmanagement.duckdns.org",
     credentials:
       "https://github.com/allanbantilan/pos-management-system-web#demo-login-credentials",
-    stack: ["Laravel", "Vue 3", "Inertia", "MySQL", "Docker"],
+    stack: ["Laravel", "Vue 3", "Inertia", "Filament", "MySQL", "Docker"],
   },
   {
     title: "Bookbound - Online Booking System",
     text:
       "An online booking app for finding listings, making reservations, and paying online.",
     contribution:
-      "Built customer booking and payment flows, merchant onboarding, and an admin workflow for reservations.",
+      "Built customer booking and payment flows, merchant onboarding, and a Filament admin panel for reservations.",
     repo: "https://github.com/allanbantilan/booking-system-web",
-    screenshot: "/booking-system.png",
-    screenshotAlt: "Bookbound online booking interface",
+    screenshots: [
+      { src: "/booking-system.png", alt: "Bookbound customer dashboard", label: "Customer dashboard" },
+      { src: "/bookbound-bookings.png", alt: "Bookbound available bookings catalog", label: "Available bookings" },
+      { src: "/bookbound-listing.png", alt: "Bookbound listing and reservation form", label: "Listing details" },
+      { src: "/bookbound-payment.png", alt: "Bookbound confirmed payment and receipt", label: "Payment receipt" },
+      { src: "/bookbound-admin-overview.png", alt: "Filament Bookbound statistics overview", label: "Admin overview" },
+      { src: "/bookbound-admin-listings.png", alt: "Filament Bookbound booking listings", label: "Admin listings" },
+      { src: "/bookbound-admin-reservations.png", alt: "Filament Bookbound reservations list", label: "Admin reservations" },
+    ],
     live: "https://bookbound.duckdns.org",
     credentials:
       "https://github.com/allanbantilan/booking-system-web#demo-login-credentials",
-    stack: ["Laravel", "Vue 3", "Tailwind", "MySQL", "Docker"],
+    stack: ["Laravel", "Vue 3", "Tailwind", "Filament", "MySQL", "Docker"],
   },
   {
     title: "Aurora AI CLI",
@@ -194,12 +233,27 @@ const projects: Project[] = [
     contribution:
       "Built interactive and one-shot modes, file and shell tools, provider fallback, and permissions for edits.",
     repo: "https://github.com/allanbantilan/aurora-ai-cli",
-    screenshot: "/aurora-cli.png",
-    screenshotAlt: "Aurora AI CLI running in a terminal",
+    screenshots: [
+      { src: "/aurora-cli.png", alt: "Aurora AI CLI running in a terminal", label: "CLI preview" },
+    ],
     live: "",
     stack: ["Node.js", "JavaScript"],
   },
 ];
+
+const activeScreenshot = reactive<Record<string, number>>({});
+
+function currentScreenshot(project: Project) {
+  return project.screenshots[activeScreenshot[project.title] ?? 0] ?? project.screenshots[0]!;
+}
+
+function showScreenshot(project: Project, direction: number) {
+  const count = project.screenshots.length;
+  if (count < 2) return;
+
+  activeScreenshot[project.title] =
+    ((activeScreenshot[project.title] ?? 0) + direction + count) % count;
+}
 
 const contacts = [
   {
@@ -323,26 +377,56 @@ onMounted(() => {
           class="project-card reveal"
           :style="{ '--reveal-delay': `${index * 110}ms` }"
         >
-          <a
-            v-if="project.screenshot"
-            class="project-shot-link"
-            :href="project.screenshot"
-            :aria-label="`View full screenshot of ${project.title}`"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            v-if="project.screenshots.length"
+            class="project-gallery"
+            role="group"
+            :aria-label="`${project.title} screenshots`"
+            @keydown.left.prevent="showScreenshot(project, -1)"
+            @keydown.right.prevent="showScreenshot(project, 1)"
           >
-            <img
-              class="project-shot"
-              :src="project.screenshot"
-              :alt="project.screenshotAlt"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="shot-action">
-              <i class="fa-solid fa-expand" aria-hidden="true"></i>
-              View full screenshot
-            </span>
-          </a>
+            <a
+              class="project-shot-link"
+              :href="currentScreenshot(project).src"
+              :aria-label="`View full screenshot: ${currentScreenshot(project).alt}`"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="project-shot"
+                :src="currentScreenshot(project).src"
+                :alt="currentScreenshot(project).alt"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="shot-action">
+                <i class="fa-solid fa-expand" aria-hidden="true"></i>
+                View full screenshot
+              </span>
+            </a>
+            <span class="gallery-label">{{ currentScreenshot(project).label }}</span>
+            <template v-if="project.screenshots.length > 1">
+              <button
+                class="gallery-nav gallery-previous"
+                type="button"
+                :aria-label="`Previous ${project.title} screenshot`"
+                @click="showScreenshot(project, -1)"
+              >
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                class="gallery-nav gallery-next"
+                type="button"
+                :aria-label="`Next ${project.title} screenshot`"
+                @click="showScreenshot(project, 1)"
+              >
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+              </button>
+              <span class="gallery-count" aria-live="polite">
+                {{ (activeScreenshot[project.title] ?? 0) + 1 }} / {{ project.screenshots.length }}
+              </span>
+            </template>
+          </div>
           <div v-else class="screenshot-slot">
             <i class="fa-regular fa-image" aria-hidden="true"></i>
             <span>Screenshot pending</span>

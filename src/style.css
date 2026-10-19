@@ -529,16 +529,21 @@ code {
 }
 
 .screenshot-slot,
-.project-shot-link {
+.project-gallery {
   border-bottom: 1px solid var(--line);
   background: var(--black);
 }
 
-.project-shot-link {
+.project-gallery {
   position: relative;
-  display: block;
   overflow: hidden;
   aspect-ratio: 16 / 9;
+}
+
+.project-shot-link {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .project-shot {
@@ -567,6 +572,59 @@ code {
 .project-shot-link:focus-visible .shot-action {
   background: var(--cyan);
   color: var(--black);
+}
+
+.gallery-nav,
+.gallery-count,
+.gallery-label {
+  position: absolute;
+  z-index: 1;
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.gallery-nav {
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-card);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.gallery-nav:hover,
+.gallery-nav:focus-visible {
+  color: var(--black);
+  background: var(--cyan);
+}
+
+.gallery-previous {
+  left: 0.75rem;
+}
+
+.gallery-next {
+  right: 0.75rem;
+}
+
+.gallery-count {
+  bottom: 0.75rem;
+  left: 0.75rem;
+  border-radius: var(--radius-card);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.gallery-label {
+  top: 0.75rem;
+  left: 0.75rem;
+  border-radius: var(--radius-card);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .screenshot-slot {
