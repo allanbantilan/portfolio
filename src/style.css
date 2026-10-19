@@ -134,6 +134,10 @@ a {
   padding: 0 1.5rem;
 }
 
+.section {
+  scroll-margin-top: 5rem;
+}
+
 .hero,
 .section {
   padding: clamp(4rem, 8vw, 8rem) 0;
@@ -372,6 +376,12 @@ code {
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 
+.projects-section .section-intro {
+  margin-top: 1rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .stack-section {
   position: relative;
   overflow: hidden;
@@ -505,6 +515,7 @@ code {
 
 .project-card {
   display: grid;
+  grid-template-rows: auto 1fr;
   overflow: hidden;
   transition:
     border-color 200ms ease-out,
@@ -518,22 +529,51 @@ code {
 }
 
 .screenshot-slot,
-.project-shot {
-  min-height: 220px;
+.project-shot-link {
   border-bottom: 1px solid var(--line);
   background: var(--black);
 }
 
+.project-shot-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
 .project-shot {
+  display: block;
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
+}
+
+.shot-action {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-card);
+  padding: 0.55rem 0.75rem;
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.82);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-shot-link:hover .shot-action,
+.project-shot-link:focus-visible .shot-action {
+  background: var(--cyan);
+  color: var(--black);
 }
 
 .screenshot-slot {
   display: grid;
   place-items: center;
   gap: 0.75rem;
+  min-height: 220px;
   color: var(--muted-2);
 }
 
@@ -544,14 +584,25 @@ code {
 }
 
 .project-body {
+  display: flex;
+  flex-direction: column;
   padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.project-card .project-contribution {
+  margin-top: 0.75rem;
+}
+
+.project-contribution strong {
+  color: var(--white);
 }
 
 .badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1.25rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
 }
 
 .badges span,

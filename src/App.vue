@@ -9,6 +9,7 @@ type StackItem = {
     | "js"
     | "ts"
     | "php"
+    | "python"
     | "mysql"
     | "vue"
     | "react"
@@ -16,6 +17,7 @@ type StackItem = {
     | "expo"
     | "node"
     | "laravel"
+    | "fastapi"
     | "inertia"
     | "tailwind"
     | "filament"
@@ -33,8 +35,10 @@ type StackItem = {
 type Project = {
   title: string;
   text: string;
+  contribution: string;
   repo: string;
   screenshot: string;
+  screenshotAlt: string;
   live: string;
   credentials?: string;
   stack: string[];
@@ -42,8 +46,8 @@ type Project = {
 
 const links = [
   { label: "Home", href: "#hero" },
-  { label: "Stack", href: "#stack" },
   { label: "Projects", href: "#projects" },
+  { label: "Stack", href: "#stack" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -56,6 +60,7 @@ const stackGroups: { title: string; items: StackItem[] }[] = [
       { name: "JavaScript", icon: "js" },
       { name: "TypeScript", icon: "ts" },
       { name: "PHP", icon: "php" },
+      { name: "Python", icon: "python" },
       { name: "MySQL", icon: "mysql" },
       { name: "Vue.js", icon: "vue" },
     ],
@@ -64,6 +69,7 @@ const stackGroups: { title: string; items: StackItem[] }[] = [
     title: "Frameworks / Libraries",
     items: [
       { name: "Laravel", icon: "laravel" },
+      { name: "FastAPI", icon: "fastapi" },
       { name: "Inertia.js", icon: "inertia" },
       { name: "Vue 3", icon: "vue" },
       { name: "React", icon: "react" },
@@ -96,6 +102,7 @@ const stackIconClasses: Record<StackItem["icon"], string> = {
   js: "devicon-javascript-plain colored",
   ts: "devicon-typescript-plain colored",
   php: "devicon-php-plain colored",
+  python: "devicon-python-plain colored",
   mysql: "devicon-mysql-plain colored",
   vue: "devicon-vuejs-plain colored",
   react: "devicon-react-original colored",
@@ -103,6 +110,7 @@ const stackIconClasses: Record<StackItem["icon"], string> = {
   expo: "devicon-expo-original colored",
   node: "devicon-nodejs-plain colored",
   laravel: "devicon-laravel-plain colored",
+  fastapi: "devicon-fastapi-plain colored",
   inertia: "devicon-inertiajs-plain colored",
   tailwind: "devicon-tailwindcss-original colored",
   filament: "devicon-filamentphp-plain colored",
@@ -125,6 +133,7 @@ const stackIconColors: Partial<Record<StackItem["icon"], string>> = {
 
 const projectStackIconClasses: Record<string, string> = {
   Laravel: "devicon-laravel-plain colored",
+  Python: "devicon-python-plain",
   "Vue 3": "devicon-vuejs-plain colored",
   Inertia: "devicon-inertiajs-plain colored",
   Tailwind: "devicon-tailwindcss-original colored",
@@ -141,40 +150,52 @@ const projects: Project[] = [
   {
     title: "Pulse Webhook Monitoring",
     text:
-      "A self-hosted monitoring dashboard for HTTP endpoints. Schedule checks, track status codes and response times, investigate incidents, and view uptime reports and check history.",
+      "Self-hosted uptime monitoring for HTTP endpoints, with incidents, alerts, and reliability reports.",
+    contribution:
+      "Built scheduled checks, incident handling, alert delivery, and a dashboard backed by FastAPI, PostgreSQL, and Redis.",
     repo: "https://github.com/allanbantilan/webhook-monitoring-web",
     screenshot: "/pulse-webhook.png",
+    screenshotAlt: "Pulse dashboard showing monitor totals and an open incident",
     live: "https://pulse-webhook.duckdns.org",
-    stack: ["Vue 3", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+    stack: ["Vue 3", "Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
   },
   {
     title: "POS Management System",
     text:
-      "A cashier app for shops. Staff search products, ring up sales, take cash or online payments, and print receipts, while owners track stock and view sales reports.",
+      "A cashier and shop management app for sales, stock, receipts, and reporting.",
+    contribution:
+      "Built product search, cart and checkout flows for cash and Maya payments, plus catalog and transaction tools.",
     repo: "https://github.com/allanbantilan/pos-management-system-web",
     screenshot: "/pos-management.png",
+    screenshotAlt: "POS Management System interface",
     live: "https://posmanagement.duckdns.org",
     credentials:
       "https://github.com/allanbantilan/pos-management-system-web#demo-login-credentials",
-    stack: ["Laravel", "Vue 3", "Inertia", "MySQL"],
+    stack: ["Laravel", "Vue 3", "Inertia", "MySQL", "Docker"],
   },
   {
     title: "Bookbound - Online Booking System",
     text:
-      "An online booking app. Customers find listings, reserve and pay online, and manage or cancel bookings, while owners handle reservations, refunds, and payments.",
+      "An online booking app for finding listings, making reservations, and paying online.",
+    contribution:
+      "Built customer booking and payment flows, merchant onboarding, and an admin workflow for reservations.",
     repo: "https://github.com/allanbantilan/booking-system-web",
     screenshot: "/booking-system.png",
+    screenshotAlt: "Bookbound online booking interface",
     live: "https://bookbound.duckdns.org",
     credentials:
       "https://github.com/allanbantilan/booking-system-web#demo-login-credentials",
-    stack: ["Laravel", "Vue 3", "Tailwind", "MySQL"],
+    stack: ["Laravel", "Vue 3", "Tailwind", "MySQL", "Docker"],
   },
   {
     title: "Aurora AI CLI",
     text:
-      "A CLI coding agent for developers, with PHP/Laravel-aware workflows. Supports interactive and one-shot modes, file and shell tools, multiple AI providers with fallback, and permission modes for safe edits.",
+      "A coding assistant for developers with PHP and Laravel aware workflows.",
+    contribution:
+      "Built interactive and one-shot modes, file and shell tools, provider fallback, and permissions for edits.",
     repo: "https://github.com/allanbantilan/aurora-ai-cli",
     screenshot: "/aurora-cli.png",
+    screenshotAlt: "Aurora AI CLI running in a terminal",
     live: "",
     stack: ["Node.js", "JavaScript"],
   },
@@ -285,6 +306,88 @@ onMounted(() => {
       </aside>
     </section>
 
+    <section id="projects" class="section projects-section">
+      <div class="section-head reveal">
+        <p class="section-kicker">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+          <span>projects</span>
+        </p>
+        <h2>Projects I've Built</h2>
+        <p class="section-intro">Every live web app here is self-hosted on my VPS.</p>
+      </div>
+
+      <div class="project-grid">
+        <article
+          v-for="(project, index) in projects"
+          :key="project.title"
+          class="project-card reveal"
+          :style="{ '--reveal-delay': `${index * 110}ms` }"
+        >
+          <a
+            v-if="project.screenshot"
+            class="project-shot-link"
+            :href="project.screenshot"
+            :aria-label="`View full screenshot of ${project.title}`"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="project-shot"
+              :src="project.screenshot"
+              :alt="project.screenshotAlt"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="shot-action">
+              <i class="fa-solid fa-expand" aria-hidden="true"></i>
+              View full screenshot
+            </span>
+          </a>
+          <div v-else class="screenshot-slot">
+            <i class="fa-regular fa-image" aria-hidden="true"></i>
+            <span>Screenshot pending</span>
+          </div>
+          <div class="project-body">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.text }}</p>
+            <p class="project-contribution">
+              <strong>My work:</strong> {{ project.contribution }}
+            </p>
+            <div class="badges">
+              <span v-for="badge in project.stack" :key="`${project.title}-${badge}`">
+                <i :class="projectStackIconClasses[badge]" aria-hidden="true"></i>
+                {{ badge }}
+              </span>
+            </div>
+            <div class="project-actions">
+              <a :href="project.repo" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                GitHub
+              </a>
+              <a
+                v-if="project.live"
+                :href="project.live"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                Live Site
+              </a>
+              <a
+                v-if="project.credentials"
+                :href="project.credentials"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-solid fa-key" aria-hidden="true"></i>
+                Login Credentials
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section id="stack" class="section stack-section">
       <div class="section-head reveal">
         <p class="section-kicker">
@@ -316,70 +419,6 @@ onMounted(() => {
                 aria-hidden="true"
               ></i>
               <span>{{ item.name }}</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="section projects-section">
-      <div class="section-head reveal">
-        <p class="section-kicker">
-          <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
-          <span>projects</span>
-        </p>
-        <h2>Projects I've Built</h2>
-      </div>
-
-      <div class="project-grid">
-        <article
-          v-for="(project, index) in projects"
-          :key="project.title"
-          class="project-card reveal"
-          :style="{ '--reveal-delay': `${index * 110}ms` }"
-        >
-          <img
-            v-if="project.screenshot"
-            class="project-shot"
-            :src="project.screenshot"
-            :alt="`${project.title} screenshot`"
-          />
-          <div v-else class="screenshot-slot">
-            <i class="fa-regular fa-image" aria-hidden="true"></i>
-            <span>Screenshot pending</span>
-          </div>
-          <div class="project-body">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.text }}</p>
-            <div class="badges">
-              <span v-for="badge in project.stack" :key="`${project.title}-${badge}`">
-                <i :class="projectStackIconClasses[badge]" aria-hidden="true"></i>
-                {{ badge }}
-              </span>
-            </div>
-            <div class="project-actions">
-              <a :href="project.repo" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-github" aria-hidden="true"></i>
-                GitHub
-              </a>
-              <a
-                v-if="project.live"
-                :href="project.live"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                Live Site
-              </a>
-              <a
-                v-if="project.credentials"
-                :href="project.credentials"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-solid fa-key" aria-hidden="true"></i>
-                Login Credentials
-              </a>
             </div>
           </div>
         </article>
