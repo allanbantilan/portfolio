@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive } from "vue";
+import { reactive } from "vue";
 
 type StackItem = {
   name: string;
@@ -149,8 +149,7 @@ const projectStackIconClasses: Record<string, string> = {
 const projects: Project[] = [
   {
     title: "Pulse Webhook Monitoring",
-    text:
-      "Self-hosted uptime monitoring for HTTP endpoints, with incidents, alerts, and reliability reports.",
+    text: "Self-hosted uptime monitoring for HTTP endpoints, with incidents, alerts, and reliability reports.",
     contribution:
       "Built scheduled checks, incident handling, alert delivery, and a dashboard backed by FastAPI, PostgreSQL, and Redis.",
     repo: "https://github.com/allanbantilan/webhook-monitoring-web",
@@ -186,19 +185,46 @@ const projects: Project[] = [
   },
   {
     title: "POS Management System",
-    text:
-      "A cashier and shop management app for sales, stock, receipts, and reporting.",
+    text: "A cashier and shop management app for sales, stock, receipts, and reporting.",
     contribution:
       "Built product search, cart and checkout flows for cash and Maya payments, plus a Filament admin panel for catalog and transactions.",
     repo: "https://github.com/allanbantilan/pos-management-system-web",
     screenshots: [
-      { src: "/pos-management.png", alt: "POS product catalog and current sale", label: "Product catalog" },
-      { src: "/pos-checkout.png", alt: "POS checkout payment method selection", label: "Checkout" },
-      { src: "/pos-cash-payment.png", alt: "POS cash payment keypad", label: "Cash payment" },
-      { src: "/pos-admin-dashboard.png", alt: "Filament POS admin dashboard", label: "Admin dashboard" },
-      { src: "/pos-admin-statistics.png", alt: "Filament POS statistics overview", label: "Admin statistics" },
-      { src: "/pos-admin-sales.png", alt: "Filament POS sales and transactions list", label: "Admin sales" },
-      { src: "/pos-admin-users.png", alt: "Filament POS client users list", label: "Admin users" },
+      {
+        src: "/pos-management.png",
+        alt: "POS product catalog and current sale",
+        label: "Product catalog",
+      },
+      {
+        src: "/pos-checkout.png",
+        alt: "POS checkout payment method selection",
+        label: "Checkout",
+      },
+      {
+        src: "/pos-cash-payment.png",
+        alt: "POS cash payment keypad",
+        label: "Cash payment",
+      },
+      {
+        src: "/pos-admin-dashboard.png",
+        alt: "Filament POS admin dashboard",
+        label: "Admin dashboard",
+      },
+      {
+        src: "/pos-admin-statistics.png",
+        alt: "Filament POS statistics overview",
+        label: "Admin statistics",
+      },
+      {
+        src: "/pos-admin-sales.png",
+        alt: "Filament POS sales and transactions list",
+        label: "Admin sales",
+      },
+      {
+        src: "/pos-admin-users.png",
+        alt: "Filament POS client users list",
+        label: "Admin users",
+      },
     ],
     live: "https://posmanagement.duckdns.org",
     credentials:
@@ -207,19 +233,46 @@ const projects: Project[] = [
   },
   {
     title: "Bookbound - Online Booking System",
-    text:
-      "An online booking app for finding listings, making reservations, and paying online.",
+    text: "An online booking app for finding listings, making reservations, and paying online.",
     contribution:
       "Built customer booking and payment flows, merchant onboarding, and a Filament admin panel for reservations.",
     repo: "https://github.com/allanbantilan/booking-system-web",
     screenshots: [
-      { src: "/booking-system.png", alt: "Bookbound customer dashboard", label: "Customer dashboard" },
-      { src: "/bookbound-bookings.png", alt: "Bookbound available bookings catalog", label: "Available bookings" },
-      { src: "/bookbound-listing.png", alt: "Bookbound listing and reservation form", label: "Listing details" },
-      { src: "/bookbound-payment.png", alt: "Bookbound confirmed payment and receipt", label: "Payment receipt" },
-      { src: "/bookbound-admin-overview.png", alt: "Filament Bookbound statistics overview", label: "Admin overview" },
-      { src: "/bookbound-admin-listings.png", alt: "Filament Bookbound booking listings", label: "Admin listings" },
-      { src: "/bookbound-admin-reservations.png", alt: "Filament Bookbound reservations list", label: "Admin reservations" },
+      {
+        src: "/booking-system.png",
+        alt: "Bookbound customer dashboard",
+        label: "Customer dashboard",
+      },
+      {
+        src: "/bookbound-bookings.png",
+        alt: "Bookbound available bookings catalog",
+        label: "Available bookings",
+      },
+      {
+        src: "/bookbound-listing.png",
+        alt: "Bookbound listing and reservation form",
+        label: "Listing details",
+      },
+      {
+        src: "/bookbound-payment.png",
+        alt: "Bookbound confirmed payment and receipt",
+        label: "Payment receipt",
+      },
+      {
+        src: "/bookbound-admin-overview.png",
+        alt: "Filament Bookbound statistics overview",
+        label: "Admin overview",
+      },
+      {
+        src: "/bookbound-admin-listings.png",
+        alt: "Filament Bookbound booking listings",
+        label: "Admin listings",
+      },
+      {
+        src: "/bookbound-admin-reservations.png",
+        alt: "Filament Bookbound reservations list",
+        label: "Admin reservations",
+      },
     ],
     live: "https://bookbound.duckdns.org",
     credentials:
@@ -228,13 +281,16 @@ const projects: Project[] = [
   },
   {
     title: "Aurora AI CLI",
-    text:
-      "A coding assistant for developers with PHP and Laravel aware workflows.",
+    text: "A coding assistant for developers with PHP and Laravel aware workflows.",
     contribution:
       "Built interactive and one-shot modes, file and shell tools, provider fallback, and permissions for edits.",
     repo: "https://github.com/allanbantilan/aurora-ai-cli",
     screenshots: [
-      { src: "/aurora-cli.png", alt: "Aurora AI CLI running in a terminal", label: "CLI preview" },
+      {
+        src: "/aurora-cli.png",
+        alt: "Aurora AI CLI running in a terminal",
+        label: "CLI preview",
+      },
     ],
     live: "",
     stack: ["Node.js", "JavaScript"],
@@ -244,7 +300,10 @@ const projects: Project[] = [
 const activeScreenshot = reactive<Record<string, number>>({});
 
 function currentScreenshot(project: Project) {
-  return project.screenshots[activeScreenshot[project.title] ?? 0] ?? project.screenshots[0]!;
+  return (
+    project.screenshots[activeScreenshot[project.title] ?? 0] ??
+    project.screenshots[0]!
+  );
 }
 
 function showScreenshot(project: Project, direction: number) {
@@ -260,7 +319,7 @@ const contacts = [
     label: "Email",
     href: "mailto:allanbantilan11@gmail.com",
     icon: "fa-solid fa-envelope",
-    color: "#00bcd4",
+    color: "#2563eb",
   },
   {
     label: "LinkedIn",
@@ -272,111 +331,104 @@ const contacts = [
     label: "GitHub",
     href: "https://github.com/allanbantilan",
     icon: "fa-brands fa-github",
-    color: "#ffffff",
+    color: "#202631",
   },
 ];
-
-onMounted(() => {
-  const targets = document.querySelectorAll<HTMLElement>(".reveal");
-
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    targets.forEach((target) => target.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const target = entry.target as HTMLElement;
-        const delay =
-          Number.parseFloat(
-            getComputedStyle(target).getPropertyValue("--reveal-delay")
-          ) || 0;
-
-        window.setTimeout(() => target.classList.add("is-visible"), delay);
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.16,
-      rootMargin: "0px 0px -8% 0px",
-    }
-  );
-
-  targets.forEach((target) => observer.observe(target));
-});
 </script>
 
 <template>
+  <a class="skip-link" href="#projects">Skip to projects</a>
   <header class="site-nav" aria-label="Main navigation">
     <a class="brand" href="#hero" aria-label="Allan Bantilan home">
-      <span>AB</span>
+      <span class="brand-mark">ab<span class="brand-dot">.</span></span>
+      <span class="brand-label"
+        >Allan Bantilan<br /><small>Software developer</small></span
+      >
     </a>
     <nav>
-      <a v-for="link in links" :key="link.href" :href="link.href">{{ link.label }}</a>
+      <a v-for="link in links" :key="link.href" :href="link.href">{{
+        link.label
+      }}</a>
     </nav>
+    <a class="nav-contact" href="mailto:allanbantilan11@gmail.com"
+      >Let's talk <span aria-hidden="true">↗</span></a
+    >
   </header>
 
-  <main class="shell">
-    <section id="hero" class="hero">
+  <main>
+    <section id="hero" class="hero shell">
       <div class="hero-copy">
-        <p class="signal">Backend-Focused Full-Stack Developer</p>
-        <h1>Allan Bantilan</h1>
-        <p>
-          Laravel developer focused on building scalable web applications, developing APIs
-          for mobile and web platforms, and ensuring system reliability through production
-          support, troubleshooting, and ongoing enhancements.
+        <p class="eyebrow">
+          <span class="eyebrow-line"></span> Backend-focused full-stack
+          developer
+        </p>
+        <h1>Building useful<br /><em>software.</em></h1>
+        <p class="hero-intro">
+          I'm Allan Bantilan. I build the APIs, applications, and everyday
+          workflows that keep real businesses moving.
         </p>
         <div class="hero-actions">
+          <a class="button primary" href="#projects"
+            >Explore my work <span aria-hidden="true">↘</span></a
+          >
           <a
-            class="button primary"
+            class="text-link"
             href="https://drive.google.com/file/d/1lnUFRhRWl7P6RTTUiBGXavNLHbvxWsAl/view?usp=sharing"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            >View résumé <span aria-hidden="true">↗</span></a
           >
-            Download Resume
-          </a>
-          <a class="button ghost" href="#projects">View Projects</a>
         </div>
       </div>
-
-      <aside class="terminal-card" aria-label="Developer profile summary">
-        <div class="terminal-top">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div class="hero-visual" aria-label="Preview of selected work">
+        <div class="hero-visual-top">
+          <span>SELECTED WORK / 01</span><span>ALLAN BANTILAN © 2026</span>
         </div>
-        <pre
-          aria-label="Developer profile API response"
-        ><code><span class="json-keyword">GET</span> <span class="json-key">/api/developer</span>  <span class="json-string">200 OK</span>
-
-<span class="json-brace">{</span>
-  <span class="json-key">"name"</span><span class="json-punc">:</span> <span class="json-string">"Allan Bantilan"</span><span class="json-punc">,</span>
-  <span class="json-key">"focus"</span><span class="json-punc">:</span> <span class="json-bracket">[</span><span class="json-string">"Vue.js"</span><span class="json-punc">,</span> <span class="json-string">"Laravel"</span><span class="json-punc">,</span> <span class="json-string">"APIs"</span><span class="json-bracket">]</span><span class="json-punc">,</span>
-  <span class="json-key">"database"</span><span class="json-punc">:</span> <span class="json-string">"MySQL"</span><span class="json-punc">,</span>
-  <span class="json-key">"support"</span><span class="json-punc">:</span> <span class="json-string">"production-ready"</span>
-<span class="json-brace">}</span></code></pre>
-      </aside>
+        <div class="hero-image-wrap">
+          <img
+            src="/pulse-webhook.png"
+            alt="Pulse monitoring dashboard with endpoint status and incidents"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-visual-bottom">
+          <span class="live-indicator"
+            ><span></span> Designed, built & self-hosted</span
+          ><span>Pulse / Webhook monitoring</span>
+        </div>
+      </div>
+      <div class="hero-footer">
+        <span>01 / INTRODUCTION</span
+        ><span>Scroll to explore <span aria-hidden="true">↓</span></span>
+      </div>
     </section>
 
-    <section id="projects" class="section projects-section">
-      <div class="section-head reveal">
-        <p class="section-kicker">
-          <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
-          <span>projects</span>
+    <section id="projects" class="section projects-section shell">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">01 / SELECTED WORK</p>
+          <h2>
+            Proof is in<br />the projects<span class="accent-period">.</span>
+          </h2>
+        </div>
+        <p class="section-intro">
+          From monitoring infrastructure to customer-facing tools, these are the
+          systems I've built and shipped. The live web apps run on my own VPS.
         </p>
-        <h2>Projects I've Built</h2>
-        <p class="section-intro">Every live web app here is self-hosted on my VPS.</p>
       </div>
 
-      <div class="project-grid">
+      <div class="project-list">
         <article
           v-for="(project, index) in projects"
           :key="project.title"
-          class="project-card reveal"
-          :style="{ '--reveal-delay': `${index * 110}ms` }"
+          class="project-card"
         >
+          <div class="project-meta">
+            <span
+              >0{{ index + 1 }} /
+              {{ project.stack.slice(0, 2).join(" · ") }}</span
+            ><span>{{ project.live ? "LIVE PROJECT" : "OPEN SOURCE" }}</span>
+          </div>
           <div
             v-if="project.screenshots.length"
             class="project-gallery"
@@ -399,12 +451,13 @@ onMounted(() => {
                 loading="lazy"
                 decoding="async"
               />
-              <span class="shot-action">
-                <i class="fa-solid fa-expand" aria-hidden="true"></i>
-                View full screenshot
-              </span>
+              <span class="shot-action"
+                >View full image <span aria-hidden="true">↗</span></span
+              >
             </a>
-            <span class="gallery-label">{{ currentScreenshot(project).label }}</span>
+            <span class="gallery-label">{{
+              currentScreenshot(project).label
+            }}</span>
             <template v-if="project.screenshots.length > 1">
               <button
                 class="gallery-nav gallery-previous"
@@ -423,7 +476,8 @@ onMounted(() => {
                 <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
               </button>
               <span class="gallery-count" aria-live="polite">
-                {{ (activeScreenshot[project.title] ?? 0) + 1 }} / {{ project.screenshots.length }}
+                {{ (activeScreenshot[project.title] ?? 0) + 1 }} /
+                {{ project.screenshots.length }}
               </span>
             </template>
           </div>
@@ -432,19 +486,28 @@ onMounted(() => {
             <span>Screenshot pending</span>
           </div>
           <div class="project-body">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.text }}</p>
+            <div class="project-heading">
+              <h3>{{ project.title }}</h3>
+              <span aria-hidden="true">↗</span>
+            </div>
+            <p class="project-summary">{{ project.text }}</p>
             <p class="project-contribution">
-              <strong>My work:</strong> {{ project.contribution }}
+              <strong>The build</strong> {{ project.contribution }}
             </p>
             <div class="badges">
-              <span v-for="badge in project.stack" :key="`${project.title}-${badge}`">
-                <i :class="projectStackIconClasses[badge]" aria-hidden="true"></i>
+              <span
+                v-for="badge in project.stack"
+                :key="`${project.title}-${badge}`"
+              >
+                <i
+                  :class="projectStackIconClasses[badge]"
+                  aria-hidden="true"
+                ></i>
                 {{ badge }}
               </span>
             </div>
             <div class="project-actions">
-              <a :href="project.repo" target="_blank" rel="noreferrer">
+              <a :href="project.repo" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github" aria-hidden="true"></i>
                 GitHub
               </a>
@@ -452,16 +515,19 @@ onMounted(() => {
                 v-if="project.live"
                 :href="project.live"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
-                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
                 Live Site
               </a>
               <a
                 v-if="project.credentials"
                 :href="project.credentials"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <i class="fa-solid fa-key" aria-hidden="true"></i>
                 Login Credentials
@@ -473,69 +539,87 @@ onMounted(() => {
     </section>
 
     <section id="stack" class="section stack-section">
-      <div class="section-head reveal">
-        <p class="section-kicker">
-          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-          <span>stack</span>
-        </p>
-        <h2>Technologies I work with.</h2>
-      </div>
-
-      <div class="stack-groups">
-        <article
-          v-for="(group, groupIndex) in stackGroups"
-          :key="group.title"
-          class="stack-group reveal"
-          :style="{ '--reveal-delay': `${groupIndex * 90}ms` }"
-        >
-          <h3>{{ group.title }}</h3>
-          <div class="stack-list">
-            <div
-              v-for="(item, index) in group.items"
-              :key="`${group.title}-${item.name}`"
-              class="stack-item reveal"
-              :style="{ '--i': index, '--reveal-delay': `${index * 45 + 120}ms` }"
-            >
-              <i
-                class="stack-icon"
-                :class="stackIconClasses[item.icon]"
-                :style="{ color: stackIconColors[item.icon] }"
-                aria-hidden="true"
-              ></i>
-              <span>{{ item.name }}</span>
-            </div>
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">02 / TOOLKIT</p>
+            <h2>
+              Built with the<br />right tools<span class="accent-period"
+                >.</span
+              >
+            </h2>
           </div>
-        </article>
+          <p class="section-intro">
+            A practical mix of backend depth, frontend fluency, and the tools
+            needed to take software into production.
+          </p>
+        </div>
+
+        <div class="stack-groups">
+          <article
+            v-for="group in stackGroups"
+            :key="group.title"
+            class="stack-group"
+          >
+            <h3>{{ group.title }}</h3>
+            <div class="stack-list">
+              <div
+                v-for="item in group.items"
+                :key="`${group.title}-${item.name}`"
+                class="stack-item"
+              >
+                <i
+                  class="stack-icon"
+                  :class="stackIconClasses[item.icon]"
+                  :style="{ color: stackIconColors[item.icon] }"
+                  aria-hidden="true"
+                ></i>
+                <span>{{ item.name }}</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="section contact-section">
-      <div class="contact-copy reveal">
-        <p class="section-kicker contact-kicker">
-          <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
-          <span>contact</span>
-        </p>
-        <h2>Let's connect.</h2>
-        <p>Open to Laravel, backend, and full-stack development opportunities.</p>
-      </div>
-      <div class="contact-links reveal" style="--reveal-delay: 120ms">
-        <a
-          v-for="contact in contacts"
-          :key="contact.href"
-          :href="contact.href"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i
-            :class="contact.icon"
-            :style="{ color: contact.color }"
-            aria-hidden="true"
-          ></i>
-          {{ contact.label }}
-        </a>
+      <div class="shell contact-inner">
+        <div class="contact-copy">
+          <p class="section-kicker contact-kicker">03 / CONTACT</p>
+          <h2>Let's make<br />something <em>work.</em></h2>
+          <p>
+            Have a Laravel, backend, or full-stack opportunity? I'd like to hear
+            about it.
+          </p>
+          <a class="contact-email" href="mailto:allanbantilan11@gmail.com"
+            >Get in touch <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="contact-links">
+          <a
+            v-for="contact in contacts"
+            :key="contact.href"
+            :href="contact.href"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              :class="contact.icon"
+              :style="{ color: contact.color }"
+              aria-hidden="true"
+            ></i>
+            {{ contact.label }}
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>© Allan Bantilan, 2026</footer>
+  <footer>
+    <div class="shell footer-inner">
+      <span>© Allan Bantilan, 2026</span
+      ><span>Built with care. Hosted with purpose.</span
+      ><a href="#hero">Back to top ↑</a>
+    </div>
+  </footer>
 </template>
