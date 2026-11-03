@@ -379,12 +379,11 @@ ol {
 .halo {
   position: absolute;
   z-index: -1;
-  width: min(78%, 360px);
+  width: min(94%, 420px);
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle at 50% 45%, var(--accent-soft), var(--accent) 120%);
-  filter: blur(2px);
-  opacity: 0.92;
+  opacity: 0.95;
 }
 .doodle-arc {
   position: absolute;
@@ -393,47 +392,42 @@ ol {
   width: 92px;
   height: 70px;
 }
-.hero-frame {
-  margin: 0;
-  width: 100%;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  padding: 14px;
+.hero-portrait {
+  position: relative;
+  width: min(80%, 340px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #fff;
   box-shadow: var(--shadow-lg);
-  transform: rotate(-1.4deg);
   transition: transform 0.3s var(--ease);
 }
-.hero-frame:hover {
-  transform: rotate(0deg) translateY(-4px);
+.hero-portrait:hover {
+  transform: translateY(-4px);
 }
-.frame-top {
-  display: flex;
-  gap: 6px;
-  padding: 2px 4px 10px;
-}
-.frame-top span {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--line);
-}
-.frame-top span:first-child {
-  background: var(--accent);
-}
-.hero-frame img {
+.hero-portrait img {
   width: 100%;
-  border-radius: var(--radius-media);
-  border: 1px solid var(--line);
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
 }
-.hero-frame figcaption {
-  display: flex;
+.hero-badge {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 6px 4px;
+  white-space: nowrap;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-weight: 600;
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--ink-2);
+  padding: 0.5em 1.05em;
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
 }
 .dot-live {
   width: 9px;

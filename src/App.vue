@@ -405,18 +405,19 @@ onMounted(() => {
         <svg class="doodle doodle-arc" viewBox="0 0 90 70" aria-hidden="true" fill="none">
           <path d="M6 58C18 30 44 14 84 16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 10" />
         </svg>
-        <figure class="hero-frame">
-          <div class="frame-top"><span></span><span></span><span></span></div>
+        <div class="hero-portrait">
           <img
-            src="/pulse-webhook.png"
-            alt="Pulse monitoring dashboard with endpoint status and incidents"
+            src="/allan.jpg"
+            alt="Allan Bantilan"
+            width="400"
+            height="400"
             fetchpriority="high"
           />
-          <figcaption>
-            <span class="dot-live" aria-hidden="true"></span>
-            Pulse — designed, built &amp; self-hosted
-          </figcaption>
-        </figure>
+        </div>
+        <span class="hero-badge">
+          <span class="dot-live" aria-hidden="true"></span>
+          Available · remote
+        </span>
       </div>
     </section>
 
