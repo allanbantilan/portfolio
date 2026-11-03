@@ -39,6 +39,11 @@ const capabilities = [
     text: "End-to-end products with Vue 3, Inertia.js, TypeScript, and Tailwind, backed by Filament admin panels for the people who run them.",
   },
   {
+    icon: "fa-brands fa-wordpress",
+    title: "WordPress builds",
+    text: "Custom themes and plugins, Elementor pages, and ACF-driven content types — with booking, search, and waitlist flows wired straight into WordPress.",
+  },
+  {
     icon: "fa-solid fa-cloud-arrow-up",
     title: "Ship & self-host",
     text: "Dockerised deploys on my own VPS, with monitoring, root-cause fixes, and the production support that keeps them up.",
@@ -213,14 +218,6 @@ const experience = [
     place: "Davao City, Philippines",
     period: "Feb 2024 — May 2024",
     text: "Independently designed and built an inventory-management system with PHP, jQuery, and JavaScript, improving tracking efficiency.",
-    current: false,
-  },
-  {
-    role: "B.S. Information Technology",
-    org: "Legacy College of Compostela",
-    place: "Davao de Oro, Philippines",
-    period: "2020 — 2024",
-    text: "Bachelor's degree in Information Technology.",
     current: false,
   },
 ];
@@ -426,7 +423,7 @@ onMounted(() => {
       <div class="shell">
         <div class="section-head" data-reveal>
           <h2>What I <span class="hl">build</span></h2>
-          <p>Three things I do end to end — from the data model to the deploy.</p>
+          <p>Four things I do end to end — from the data model to the deploy.</p>
         </div>
         <div class="cap-grid">
           <article
