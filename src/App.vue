@@ -225,12 +225,6 @@ const experience = [
   },
 ];
 
-const stats = [
-  { value: "2+ yrs", label: "Professional experience" },
-  { value: "8", label: "Projects shipped" },
-  { value: "Self-hosted", label: "Live on my own VPS" },
-];
-
 const stackGroups: { title: string; items: StackItem[] }[] = [
   {
     title: "Languages",
@@ -477,7 +471,6 @@ onMounted(() => {
           v-for="project in filteredProjects"
           :key="project.title"
           class="project-card"
-          data-reveal
         >
           <div
             class="project-gallery"
@@ -578,29 +571,6 @@ onMounted(() => {
               </span>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section id="why" class="why shell">
-      <div class="why-panel" data-reveal>
-        <div class="why-copy">
-          <h2>Why work <span class="hl">with me?</span></h2>
-          <p>
-            I ship end-to-end and own what I build — from the API and the
-            payment flow to the Docker deploy and the production bug at 11pm.
-            You get a developer who finishes the job and keeps it running.
-          </p>
-          <div class="why-stats">
-            <div v-for="s in stats" :key="s.label" class="why-stat">
-              <strong>{{ s.value }}</strong>
-              <span>{{ s.label }}</span>
-            </div>
-          </div>
-          <a class="btn btn-dark" :href="`mailto:${email}`">
-            Hire me <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-          </a>
         </div>
       </div>
     </section>

@@ -816,55 +816,9 @@ ol {
   color: #fff;
 }
 
-/* ---------- Why ---------- */
-.why {
-  padding-block: clamp(56px, 8vw, 100px);
-}
-.why-panel {
-  background: var(--panel);
-  border-radius: 40px;
-  padding: clamp(36px, 6vw, 72px);
-}
-.why-copy {
-  max-width: 760px;
-}
-.why-copy h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
-}
-.why-copy > p {
-  margin-top: 20px;
-  color: var(--muted);
-  font-size: 1.1rem;
-  max-width: 62ch;
-}
-.why-stats {
-  margin-top: 36px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-.why-stat {
-  display: flex;
-  flex-direction: column;
-}
-.why-stat strong {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -0.03em;
-}
-.why-stat span {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-.why-copy .btn {
-  margin-top: 36px;
-}
-
 /* ---------- CTA ---------- */
 .cta {
-  padding-top: clamp(40px, 6vw, 70px);
+  padding-top: clamp(56px, 8vw, 100px);
 }
 .cta-inner {
   text-align: center;
