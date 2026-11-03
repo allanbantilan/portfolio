@@ -2,3 +2,6 @@ dist
 node_modules
 .vite
 .gstack/
+
+# Local-only skills (ui-ux-pro-max, impeccable) - not committed
+.claude/skills/
