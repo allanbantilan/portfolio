@@ -490,6 +490,7 @@ ol {
 /* ---------- Projects ---------- */
 .projects {
   padding-block: clamp(64px, 9vw, 110px);
+  max-width: 1440px;
 }
 .filter-row {
   margin-top: 36px;
@@ -521,7 +522,7 @@ ol {
 .project-list {
   margin-top: 38px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
 }
 .project-card {
@@ -1013,11 +1014,6 @@ ol {
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1100px) {
-  .project-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media (max-width: 1000px) {
   .cap-grid,
   .stack-groups {
